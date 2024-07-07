@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const isLoggedIn = !!localStorage.getItem('token');
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -18,22 +18,32 @@ const Navbar = () => {
         <MenuItem>
           <StyledLink to="/">Home</StyledLink>
         </MenuItem>
-        <MenuItem>
-          <StyledLink to="/login">Login</StyledLink>
-        </MenuItem>
-        <MenuItem>
-          <PlainButton onClick={handleLogout}>Logout</PlainButton>
-        </MenuItem>
-        <MenuItem>
-          <StyledLink to="/register">Register</StyledLink>
-        </MenuItem>
-        <MenuItem>
-          <StyledLink to="/dashboard">Dashboard</StyledLink>
-        </MenuItem>
+        {!isLoggedIn && (
+          <>
+            <MenuItem>
+              <StyledLink to="/login">Login</StyledLink>
+            </MenuItem>
+            <MenuItem>
+              <StyledLink to="/register">Register</StyledLink>
+            </MenuItem>
+          </>
+        )}
+        {isLoggedIn && (
+          <>
+            <MenuItem>
+              <StyledLink to="/dashboard">Dashboard</StyledLink>
+            </MenuItem>
+            <MenuItem>
+              <PlainButton onClick={handleLogout}>Logout</PlainButton>
+            </MenuItem>
+          </>
+        )}
       </Menu>
     </Nav>
   );
 };
+
+
 
 export default Navbar;
 

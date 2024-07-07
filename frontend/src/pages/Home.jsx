@@ -1,19 +1,15 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Navbar from "../components/Navbar"
-import styled from 'styled-components';
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import styled from "styled-components";
 
 function Home() {
-  
-
   return (
     <>
-    <Navbar></Navbar>
-    <Container>
+      <Navbar></Navbar>
+      <Container>
         <p>WELCOME HOME</p>
-    </Container>
-    
+      </Container>
     </>
   );
 }
@@ -21,5 +17,5 @@ function Home() {
 export default Home;
 
 const Container = styled.div`
-text-align:center;
-`
+  text-align: center;
+`;
