@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "ee7d719d-562e-4e06-b175-6ccea68e4cc2",
+		"name": "weatherApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31318024",
+		"_collection_link": "https://nikhil-7594.postman.co/workspace/nikhil-Workspace~0b6ce24f-c027-4933-a899-f38b29464375/collection/31318024-ee7d719d-562e-4e06-b175-6ccea68e4cc2?action=share&source=collection_link&creator=31318024"
+	},
+	"item": [
+		{
+			"name": "Post User Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"sachin@gmail.com\",\r\n  \"password\": \"sachin@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Current Weather For Given City",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlhdCI6MTcyMDM2NTgwMn0.pAI8XSeAuhyhxRiUHIt3aS2LpKFkL7-rkrMpx-6s5Uk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/weather/current?city=London\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"weather",
+						"current"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "London\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Five Days Historical Data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlhdCI6MTcyMDM2NTgwMn0.pAI8XSeAuhyhxRiUHIt3aS2LpKFkL7-rkrMpx-6s5Uk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/weather/historical?city=London",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"weather",
+						"historical"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "London"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post User Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"sachin@gmail.com\",\r\n  \"password\": \"sachin@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Five Day Forecast",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsImlhdCI6MTcyMDM2NTgwMn0.pAI8XSeAuhyhxRiUHIt3aS2LpKFkL7-rkrMpx-6s5Uk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/weather/historical?city=London&",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"weather",
+						"historical"
+					],
+					"query": [
+						{
+							"key": "city",
+							"value": "London"
+						},
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Favourite city",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/favourites",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"favourites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Favourite City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/favourites",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"favourites"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
