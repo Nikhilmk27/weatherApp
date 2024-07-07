@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+require('dotenv').config();
 const authRoutes = require('./src/routes/auth.js');
 const weatherRoutes = require('./src/routes/weather');
 const favoriteRoutes = require('./src/routes/favorites');

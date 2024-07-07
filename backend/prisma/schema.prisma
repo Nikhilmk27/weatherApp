@@ -22,6 +22,6 @@ model User {
 
 model City {
   id     Int    @id @default(autoincrement())
-  name   String
+  name   String @unique
   users  User[]
 }

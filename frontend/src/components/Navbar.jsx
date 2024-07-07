@@ -1,9 +1,16 @@
-// NavBar.js
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const NavBar = () => {
+const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/login', { replace: true });
+  };
+
   return (
     <Nav>
       <Logo>WeatherApp</Logo>
@@ -15,15 +22,20 @@ const NavBar = () => {
           <StyledLink to="/login">Login</StyledLink>
         </MenuItem>
         <MenuItem>
+          <PlainButton onClick={handleLogout}>Logout</PlainButton>
+        </MenuItem>
+        <MenuItem>
           <StyledLink to="/register">Register</StyledLink>
         </MenuItem>
         <MenuItem>
-          <StyledLink to="/dashboard">dashboard</StyledLink>
+          <StyledLink to="/dashboard">Dashboard</StyledLink>
         </MenuItem>
       </Menu>
     </Nav>
   );
 };
+
+export default Navbar;
 
 const Nav = styled.nav`
   display: flex;
@@ -58,4 +70,8 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export default NavBar;
+const PlainButton = styled.button`
+  all: unset;
+  color: white;
+  cursor: pointer; /* optional: to keep pointer cursor on hover */
+`;
